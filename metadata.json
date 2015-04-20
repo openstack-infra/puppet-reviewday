@@ -1,5 +1,5 @@
 {
-  "name": "openstackci-reviewday",
+  "name": "openstackinfra-reviewday",
   "version": "0.0.1",
   "author": "OpenStack CI",
   "summary": "Puppet module for Reviewday",
