@@ -5,7 +5,7 @@
   "summary": "Puppet module for Reviewday",
   "license": "Apache 2.0",
   "source": "git://git.openstack.org/openstack-infra/puppet-reviewday.git",
-  "project_page": "http://ci.openstack.org/",
+  "project_page": "http://docs.openstack.org/infra/system-config/",
   "issues_url": "https://storyboard.openstack.org/#!/project/771",
   "dependencies": [
   ]
