@@ -90,11 +90,11 @@ define reviewday::site(
   }
 
   file { '/var/lib/reviewday/.ssh/config':
-    ensure   => present,
-    content  => template('reviewday/ssh_config.erb'),
-    owner    => 'reviewday',
-    group    => 'reviewday',
-    mode     => '0644',
+    ensure  => present,
+    content => template('reviewday/ssh_config.erb'),
+    owner   => 'reviewday',
+    group   => 'reviewday',
+    mode    => '0644',
   }
 
   cron { 'update reviewday':
