@@ -15,15 +15,15 @@
 # == Define: reviewday
 #
 define reviewday::site(
-  $gerrit_url = '',
-  $gerrit_port = '',
-  $gerrit_user = '',
-  $reviewday_rsa_key_contents = '',
-  $reviewday_rsa_pubkey_contents = '',
-  $reviewday_gerrit_ssh_key = '',
-  $git_url = '',
-  $httproot = '',
-  $serveradmin = ''
+  $gerrit_url = 'localhost',
+  $gerrit_port = '29418',
+  $gerrit_user = 'reviewday',
+  $reviewday_rsa_key_contents = undef,
+  $reviewday_rsa_pubkey_contents = undef,
+  $reviewday_gerrit_ssh_key = undef,
+  $git_url = 'git://git.openstack.org/openstack-infra/reviewday',
+  $httproot = '/srv/static/reviewday',
+  $serveradmin = 'webmaster@example.org'
 ) {
 
   file { '/var/lib/reviewday/.ssh/':
@@ -34,7 +34,7 @@ define reviewday::site(
     require => User['reviewday'],
   }
 
-  if $reviewday_rsa_key_contents != '' {
+  if $reviewday_rsa_key_contents != undef {
     file { '/var/lib/reviewday/.ssh/id_rsa':
       owner   => 'reviewday',
       group   => 'reviewday',
@@ -45,7 +45,7 @@ define reviewday::site(
     }
   }
 
-  if $reviewday_rsa_pubkey_contents != '' {
+  if $reviewday_rsa_pubkey_contents != undef {
     file { '/var/lib/reviewday/.ssh/id_rsa.pub':
       owner   => 'reviewday',
       group   => 'reviewday',
@@ -56,7 +56,7 @@ define reviewday::site(
     }
   }
 
-  if $reviewday_gerrit_ssh_key != '' {
+  if $reviewday_gerrit_ssh_key != undef {
     file { '/var/lib/reviewday/.ssh/known_hosts':
       owner   => 'reviewday',
       group   => 'reviewday',
