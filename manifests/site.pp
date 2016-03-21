@@ -15,15 +15,15 @@
 # == Define: reviewday
 #
 define reviewday::site(
-  $gerrit_url = 'localhost',
-  $gerrit_port = '29418',
-  $gerrit_user = 'reviewday',
-  $reviewday_rsa_key_contents = undef,
+  $gerrit_url                    = 'localhost',
+  $gerrit_port                   = '29418',
+  $gerrit_user                   = 'reviewday',
+  $git_url                       = 'git://git.openstack.org/openstack-infra/reviewday',
+  $httproot                      = '/srv/static/reviewday',
+  $reviewday_gerrit_ssh_key      = undef,
+  $reviewday_rsa_key_contents    = undef,
   $reviewday_rsa_pubkey_contents = undef,
-  $reviewday_gerrit_ssh_key = undef,
-  $git_url = 'git://git.openstack.org/openstack-infra/reviewday',
-  $httproot = '/srv/static/reviewday',
-  $serveradmin = 'webmaster@example.org'
+  $serveradmin                   = 'webmaster@example.org',
 ) {
 
   file { '/var/lib/reviewday/.ssh/':
