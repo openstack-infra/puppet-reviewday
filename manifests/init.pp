@@ -15,13 +15,11 @@
 # Class: reviewday
 #
 class reviewday {
-  if ! defined(Package['python-launchpadlib']) {
-    package { 'python-launchpadlib':
-      ensure => present,
-    }
-  }
-  package { 'python-cheetah':
-    ensure => present,
+
+  exec { 'install-reviewday-dependencies':
+    command     => 'pip install -r requirements.txt',
+    path        => '/var/lib/reviewday',
+    require     => Class['pip'],
   }
 
   file {'/var/lib/reviewday':
