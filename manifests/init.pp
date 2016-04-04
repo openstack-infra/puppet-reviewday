@@ -15,14 +15,7 @@
 # Class: reviewday
 #
 class reviewday {
-  if ! defined(Package['python-launchpadlib']) {
-    package { 'python-launchpadlib':
-      ensure => present,
-    }
-  }
-  package { 'python-cheetah':
-    ensure => present,
-  }
+
 
   file {'/var/lib/reviewday':
     ensure  => directory,

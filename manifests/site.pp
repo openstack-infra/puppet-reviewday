@@ -82,6 +82,13 @@ define reviewday::site(
     revision => 'master',
   }
 
+  exec { 'install-reviewday-dependencies':
+    command   => 'pip install -r requirements.txt',
+    path      => '/var/lib/reviewday/reviewday',
+    subscribe => Vcsrepo['/var/lib/reviewday/reviewday'],
+    require   => Class['pip'],
+  }
+
   file { $httproot:
     ensure => directory,
     owner  => 'reviewday',
@@ -101,6 +108,7 @@ define reviewday::site(
     command => "cd /var/lib/reviewday/reviewday && PYTHONPATH=\$PWD flock -n /var/lib/reviewday/update.lock python bin/reviewday -o ${httproot}",
     minute  => '*/30',
     user    => 'reviewday',
+    require => Exec['install-reviewday-dependencies'],
   }
 
 }
