@@ -38,6 +38,27 @@ class reviewday {
     require    => Group['reviewday'],
   }
 
+  file { '/var/log/reviewday.log':
+    ensure  => file,
+    owner   => 'reviewday',
+    group   => 'reviewday',
+    mode    => '0644',
+    require => User['reviewday'],
+  }
+
+  include ::logrotate
+  logrotate::file { 'reviewday':
+    log     => '/var/log/reviewday.log',
+    options => [
+      'compress',
+      'copytruncate',
+      'missingok',
+      'rotate 7',
+      'daily',
+      'notifempty',
+    ],
+  }
+
 }
 
 # vim:sw=2:ts=2:expandtab:textwidth=79
