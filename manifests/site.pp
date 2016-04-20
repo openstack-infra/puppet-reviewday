@@ -105,7 +105,7 @@ define reviewday::site(
   }
 
   cron { 'update reviewday':
-    command => "cd /var/lib/reviewday/reviewday && PYTHONPATH=\$PWD flock -n /var/lib/reviewday/update.lock python bin/reviewday -o ${httproot}",
+    command => "cd /var/lib/reviewday/reviewday && PYTHONPATH=\$PWD flock -n /var/lib/reviewday/update.lock python bin/reviewday -o ${httproot} >> /var/log/reviewday.log 2>&1",
     minute  => '*/30',
     user    => 'reviewday',
     require => Exec['install-reviewday-dependencies'],
