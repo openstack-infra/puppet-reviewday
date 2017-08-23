@@ -1,0 +1,8 @@
+Code-Review+2: Clark Boylan <cboylan@sapwetik.org>
+Workflow+1: Clark Boylan <cboylan@sapwetik.org>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Wed, 23 Aug 2017 00:36:01 +0000
+Reviewed-on: https://review.openstack.org/495636
+Project: openstack-infra/puppet-reviewday
+Branch: refs/heads/master
