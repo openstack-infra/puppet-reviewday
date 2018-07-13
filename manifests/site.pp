@@ -67,19 +67,13 @@ define reviewday::site(
     }
   }
 
-  file {'/var/lib/reviewday/reviewday':
-    ensure  => directory,
-    owner   => 'reviewday',
-    group   => 'reviewday',
-    mode    => '0755',
-    require => File['/var/lib/reviewday/'],
-  }
-
   vcsrepo { '/var/lib/reviewday/reviewday':
     ensure   => latest,
     provider => git,
     source   => $git_url,
     revision => 'master',
+    owner    => 'reviewday',
+    group    => 'reviewday',
   }
 
   exec { 'install-reviewday-dependencies':
