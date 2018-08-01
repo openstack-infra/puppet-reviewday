@@ -83,10 +83,11 @@ define reviewday::site(
   }
 
   exec { 'install-reviewday-dependencies':
-    command   => 'pip install -r /var/lib/reviewday/reviewday/requirements.txt',
-    path      => '/usr/local/bin/:/bin/',
-    subscribe => Vcsrepo['/var/lib/reviewday/reviewday'],
-    require   => Class['pip'],
+    command     => 'pip install -r /var/lib/reviewday/reviewday/requirements.txt',
+    path        => '/usr/local/bin/:/bin/',
+    subscribe   => Vcsrepo['/var/lib/reviewday/reviewday'],
+    refreshonly => true,
+    require     => Class['pip'],
   }
 
   file { $httproot:
