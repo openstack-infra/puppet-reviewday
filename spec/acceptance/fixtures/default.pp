@@ -40,7 +40,7 @@ $status_vhost = 'NameVirtualHost *:80
 }
 
 reviewday::site { 'reviewday':
-  git_url                       => 'git://git.openstack.org/openstack-infra/reviewday',
+  git_url                       => 'https://git.openstack.org/openstack-infra/reviewday',
   serveradmin                   => 'webmaster@openstack.org',
   httproot                      => '/srv/static/reviewday',
   gerrit_url                    => 'review.openstack.org',

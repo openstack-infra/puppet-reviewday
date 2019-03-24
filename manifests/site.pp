@@ -18,7 +18,7 @@ define reviewday::site(
   $gerrit_port                   = '29418',
   $gerrit_url                    = 'localhost',
   $gerrit_user                   = 'reviewday',
-  $git_url                       = 'git://git.openstack.org/openstack-infra/reviewday',
+  $git_url                       = 'https://git.openstack.org/openstack-infra/reviewday',
   $httproot                      = '/srv/static/reviewday',
   $reviewday_gerrit_ssh_key      = undef,
   $reviewday_rsa_key_contents    = undef,
