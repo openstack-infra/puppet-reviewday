@@ -1,5 +1,3 @@
-# OpenStack Reviewday  Module
+# This repo has moved to OpenDev
 
-## Overview
-
-Configures Reviewday.
+It can now be found at [https://opendev.org/opendev/puppet-reviewday](https://opendev.org/opendev/puppet-reviewday)
